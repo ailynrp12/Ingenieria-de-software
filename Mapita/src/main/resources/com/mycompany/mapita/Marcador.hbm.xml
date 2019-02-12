@@ -6,7 +6,7 @@
     <class name="com.mycompany.mapita.Marcador" table="marcador" schema="public" optimistic-lock="version">
         <id name="idmarcador" type="int">
             <column name="idmarcador" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="descripcion" type="string">
             <column name="descripcion" />
