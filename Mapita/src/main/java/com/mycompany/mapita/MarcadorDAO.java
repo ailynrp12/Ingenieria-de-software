@@ -30,40 +30,12 @@ public class MarcadorDAO extends AbstractDAO<Marcador>{
     
     @Override
     public void update(Marcador m){
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.update(m);
-            tx.commit();
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            
-        }finally{
-            session.close();
-            
-        }
+        super.update(m);
     }
     
     @Override
     protected void delete(Marcador m){
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.delete(m);
-            tx.commit();
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            
-        }finally{
-            session.close();
-            
-        }
+        super.delete(m);
     }
     
     @Override

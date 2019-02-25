@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -12,20 +7,26 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <f:view>
         <h:head>
-            <title>Marcador</title>
+            <title>Modificar marcador</title>
             <h:outputStylesheet name="css/estilos.css"/>
-    </h:head>
-    <h:body>
-        Ingresa los datos del marcador que quieras modificar
-        <h:form>
-            <p:inputNumber id="idmarcador" value="#{actualizaMarcador.idmarcador}" placeholder="Id Marcador" />
-            <p:inputText id="correo" value="#{agregaUsuario.correo}" placeholder ="Correo" />
-            <p:password id="contrasenia" value="#{agregaUsuario.contrasenia}" placeholder ="Contraseña" />
-            <p:calendar id="fechanacimiento" value ="#{agregaUsuario.fechanacimiento}" placeholder="Fecha de Nacimiento" />
-            <p:commandButton action ="#{agregaUsuario.agregaUsuario()}" value="Registrarse" />
-                         
-        </h:form>
-    </h:body>
+        </h:head>
+        <h:body>
+            <div class="header">
+                <h1>Amatohtli</h1>
+            </div>
+            <div class="topnav">
+                <a href="#">Iniciar sesión</a>
+                <a href="#">Registrarse</a>
+                <a href="#">Buscar temas</a>
+            </div>
+            <h:form>
+                <p:inputNumber id="idmarc" value="#{actualizaMarcador}" placeholder="ID" /> <br/>
+                <p:inputText id="nombre" value="#{agregaUsuario.nombre}" placeholder="Nombre"/> <br/>
+                <p:inputText id="correo" value="#{agregaUsuario.correo}" placeholder="Correo"/> <br/>
+                <p:password id="constrasenia" value="#{agregaUsuario.contrasenia}" placeholder="Contrasenia"/> <br/>
+                <p:calendar id="fechanacimiento" value="#{agregaUsuario.fechanacimiento}" placeholder="Fecha de nacimiento"/> <br/>
+                <p:commandButton action="#{agregaUsuario.agregaUsuario()}" value="Registrame" ajax="false" />
+            </h:form>
+        </h:body>
     </f:view>
 </html>
-

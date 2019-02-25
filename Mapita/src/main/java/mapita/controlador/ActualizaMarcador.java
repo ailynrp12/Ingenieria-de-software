@@ -65,10 +65,13 @@ public class ActualizaMarcador {
         MarcadorDAO mdao = new MarcadorDAO();
         Marcador m = mdao.find(Marcador.class, getIdmarcador());
         if(getDescripcion() != null)
-            mdao.update(m);
-        if(getLongitud() !=  0)
-            mdao.update(m);
-        if(getLatitud() !=  0)
-            mdao.update(m);
+            m.setDescripcion(descripcion);
+        if(getLongitud() !=  0.00)
+            m.setLongitud(longitud);
+        if(getLatitud() !=  0.00)
+            m.setLatitud(latitud);
+        if(getIdusuario() != 0.00)
+            m.setIdusuario(idusuario);
+        mdao.update(m);
     }
 }

@@ -17,108 +17,38 @@ import org.hibernate.Transaction;
  * @author ailyn
  */
 public class UsuarioDAO extends AbstractDAO<Mapita> {
-    protected SessionFactory sessionFactory;
+
     
     
     public UsuarioDAO(){
-        this.sessionFactory = HibernateUtil.getSessionFactory();
+        super();
     }
     
     @Override
-    public void save(Mapita obj){
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.save(obj);
-            tx.commit();
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            
-        }finally{
-            session.close();
-            
-        }
+    public void save(Mapita m){
+        super.save(m);
+        
     }
     
     @Override
-    public void update(Mapita obj){
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.update(obj);
-            tx.commit();
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            
-        }finally{
-            session.close();
-            
-        }
+    public void update(Mapita m){
+        super.update(m);
     }
     
     @Override
-    public void delete(Mapita obj){
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.delete(obj);
-            tx.commit();
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-            e.printStackTrace();
-            
-        }finally{
-            session.close();
-            
-        }
+    public void delete(Mapita m){
+        super.delete(m);
+        
     }
     
     @Override
     public Mapita find(Class clazz, int id){
-        Mapita obj = null;
-        Session session = this.sessionFactory.getCurrentSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            obj = (Mapita)session.get(clazz,id);
-            tx.commit();
-            
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-        }finally{
-            session.close();
-        }
-        return obj;
+        return super.find(Mapita.class, id);
         
     }
     
     @Override
     public List<Mapita> findAll(Class clazz){
-        List<Mapita> obj = null;
-        Session session = this.sessionFactory.getCurrentSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            String hql = "From" + clazz;
-            Query query = session.createQuery(hql);
-            obj = (List<Mapita>)query.list();
-            tx.commit();
-            
-        }catch(HibernateException e){
-            if(tx != null)
-                tx.rollback();
-        }finally{
-            session.close();
-        }
-        return obj;
+        return super.findAll(Mapita.class);
     }
 }
