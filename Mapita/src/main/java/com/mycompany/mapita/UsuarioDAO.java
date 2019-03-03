@@ -51,4 +51,28 @@ public class UsuarioDAO extends AbstractDAO<Mapita> {
     public List<Mapita> findAll(Class clazz){
         return super.findAll(Mapita.class);
     }
+    
+     public List<Mapita> buscaPorNombre(String nombre){
+//        if(nombre.equals(""))
+//            return null;
+        List<Mapita> usuarios =null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "From Mapita u where u.nombre like concat('%',:nombre,'%')";
+            Query query = session.createQuery(hql);
+            query.setParameter("nombre", nombre);
+            usuarios = (List<Mapita>)query.list();
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return usuarios;
+    }
 }
