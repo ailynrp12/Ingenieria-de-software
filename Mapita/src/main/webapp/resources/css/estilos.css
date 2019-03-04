@@ -10,6 +10,10 @@ and open the template in the editor.
 body{
     background: blue;
 }
+
+.header{
+    color: white;
+}
 .topnav {
   overflow: hidden;
   background-color: #333;
