@@ -34,7 +34,7 @@ public class MarcadorDAO extends AbstractDAO<Marcador>{
     }
     
     @Override
-    protected void delete(Marcador m){
+    public void delete(Marcador m){
         super.delete(m);
     }
     

@@ -75,4 +75,28 @@ public class UsuarioDAO extends AbstractDAO<Mapita> {
         }
         return usuarios;
     }
+     public Mapita buscaPorCorreo(String correo, String contrasenia){
+//        if(nombre.equals(""))
+//            return null;
+        Mapita usuarios =null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "From Mapita u where u.correo = :correo and u.contrasenia = :contrasenia";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);
+            query.setParameter("contrasenia", contrasenia);
+            usuarios = (Mapita)query.uniqueResult();
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return usuarios;
+    }
 }

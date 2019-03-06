@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
  * @author ailyn
  */
 @ManagedBean
-//@SessionScoped
+@SessionScoped
 public class BuscaPorNombre {
      private String nombre;
     

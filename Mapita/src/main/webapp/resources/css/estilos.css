@@ -36,21 +36,28 @@ body{
 }
 
 .column {
+  color: white;
   float: left;
-  width: 50%;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     %;
+  width: 33%;
 }
 .row:after {
+  color: white; 
   content: "";
   display: table;
   clear: both;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:500px) {
   .column {
-    width: 100%;
+    width: 35%;
   }
 }
 
 img {
   border-radius: 8px;
+  width: 460px;
+}
+
+footer{
+    color: white;
 }
